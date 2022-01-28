@@ -49,10 +49,7 @@ public class EjemplosMap {
 	   	for(Punto p: claves) {
 	   		System.out.println(p + " color " + figura.get(p));
 	   	}
-	   	Collection<String> colore = figura.values();
-	   	
-	   	
-	   	
+	   	Collection<String> colore = figura.values();  	
 	   	
 	}
 }
