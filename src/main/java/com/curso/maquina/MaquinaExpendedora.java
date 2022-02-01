@@ -39,7 +39,7 @@ public class MaquinaExpendedora {
 	}
 	
 	
-	public void vender(TiposRefresco tipo, double dinero) 
+	public double vender(TiposRefresco tipo, double dinero) 
 			throws VentaRefrescoException {
 		
 		// validaciones
@@ -51,11 +51,20 @@ public class MaquinaExpendedora {
 		if( dinero <= 0) {
 			throw new VentaRefrescoException("Debe introducir importe válido");
 		}
-		//.. mas casos ko
+		//.. mas casos error 
 		
-		//ok - saco un refesco 
+		//...
+		//..
+		
+		//ok - saco un refresco 
+		double cambios = 0;
+		
 		this.casillerosRefrescos.get(tipo).sacarRefresco();
 		this.recaudacion += this.casillerosRefrescos.get(tipo).getPrecio();
+		if(dinero > this.casillerosRefrescos.get(tipo).getPrecio()) {
+			cambios = dinero - this.casillerosRefrescos.get(tipo).getPrecio();
+		}
+		return cambios;
 	}
 	
 	
